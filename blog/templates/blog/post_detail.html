@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<hr>
+    <h2>{{ view.return_post.name }}</h2>
+    <p><strong>Date:</strong> {{ view.return_post.pub_date }}</p>
+        <hr>
+        <p style="white-space:pre-wrap;">{{ view.return_post.content.rendered }}</p>
+<hr>
+        <div style="margin-left:20px;margin-top:20px">
+            <h4>Comments:</h4>
+
+            {% for comment in comment_list %}
+            <hr>
+              <p><b>{{comment.pub_date}} - {{comment.author}}</b></p>
+              {{comment.content.rendered}}
+            {% endfor %}
+            <hr>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'post_comment' view.return_post.id %}?next={{request.path}}">Add comment</a></li>
+                {% else %}
+                <b>You must be logged in to post a message:</b>
+                    <li><a href="{% url 'login'%}?next={{request.path}}">Log in</a></li>
+                    <li><a href="{% url 'signup'%}?next={{request.path}}">Sign up</a></li>
+            {% endif %}
+        </div>
+{% endblock %}

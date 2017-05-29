@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ view.return_blog.name }}</h1>
+<p><strong>Author:</strong> <p>{{ view.return_blog.author }}</p>
+<p><strong>Description:</strong></p>
+<p style="white-space:pre-wrap;">{{ view.return_blog.description }}</p>
+
+<div style="margin-left:20px;margin-top:20px">
+<h3>All posts:</h3>
+
+    {% if post_list %}
+    <ul>
+
+      {% for post in post_list %}
+      <li>
+        <a href="{{ post.get_absolute_url }}">{{ post.name }} — {{ post.pub_date }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+
+    {% else %}
+      <p>No posts.</p>
+    {% endif %}
+     {% if user.is_authenticated %}
+        {% if user.id == view.return_blog.author.id %}
+            <li><a href="{% url 'post_add' view.return_blog.id %}?next={{request.path}}">Add new post</a></li>
+        {% endif %}
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<hr>
+    <h1>All blogs:</h1>
+<hr>
+    {% if blog_list %}
+    <ul>
+
+      {% for blog in blog_list %}
+      <li>
+          <b><a href="{{ blog.get_absolute_url }}">{{ blog.name }}</a></b>  — <a href="{% url 'blogs-by-author' blog.author.pk %}">{{ blog.author }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+
+    {% else %}
+      <p>Brak blogow.</p>
+    {% endif %}
+     {% if user.is_authenticated %}
+            <li><a href="{% url 'blog_add' %}?next={{request.path}}">Create new blog</a></li>
+    {% endif %}
+{% endblock %}
+

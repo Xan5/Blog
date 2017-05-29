@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Add comment to post: <a href="{% url 'post-detail' post.pk %}">{{post.name}}</a></p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit" />
+    
+</form>
+{% endblock %}
