@@ -1,11 +1,9 @@
+from django.contrib.auth.models import User #Blog author or commenter
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-# Create your tests here.
-
-
 from blog.models import Blog, BlogAuthor
-from django.core.urlresolvers import reverse
-from django.contrib.auth.models import User #Blog author or commenter
+
 
 class BlogListView(TestCase):
     

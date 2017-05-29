@@ -1,17 +1,12 @@
 # Create your views here.
 
 
-import operator
-
-
-from django.views import generic
-from .models import Blog, PostComment, Post
-from django.contrib.auth.models import User  # Blog author or commenter
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from blog.forms import SignUpForm
-from django.urls import reverse
+from django.views import generic
+
+from .forms import SignUpForm
+from .models import Blog, PostComment, Post
 
 
 def index(request):

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+
 from blog import views
 
 urlpatterns = [
@@ -27,7 +28,7 @@ urlpatterns = [
 from django.conf.urls import include
 
 urlpatterns += [
-    url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('app.blog.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application

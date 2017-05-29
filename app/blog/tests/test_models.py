@@ -1,9 +1,8 @@
+from django.contrib.auth.models import User #Blog author or commenter
 from django.test import TestCase
 
-# Create your tests here.
-
-from django.contrib.auth.models import User #Blog author or commenter
 from blog.models import BlogAuthor, Blog, BlogComment
+
 
 class BlogAuthorModelTest(TestCase):
 

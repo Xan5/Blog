@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #Add config for Blog application
-    'blog.apps.BlogConfig',
+    'app.blog',
     'precise_bbcode',
     'haystack',
 ]

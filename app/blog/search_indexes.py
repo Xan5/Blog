@@ -1,7 +1,9 @@
 import datetime
+
 from haystack import indexes
+
 from blog.models import Blog, Post, PostComment
-from precise_bbcode.fields import BBCodeTextField
+
 
 class BlogIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
