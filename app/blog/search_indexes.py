@@ -2,7 +2,7 @@ import datetime
 
 from haystack import indexes
 
-from blog.models import Blog, Post, PostComment
+from .models import Blog, Post, PostComment
 
 
 class BlogIndex(indexes.SearchIndex, indexes.Indexable):
